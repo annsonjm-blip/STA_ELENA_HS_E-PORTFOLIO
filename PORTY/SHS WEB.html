@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sta. Elena High School | Internship E-Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--blue:#0033A0;
+--yellow:#FFD700;
+--dark:#0d1117;
+--light:#f4f4f4;
+--white:#ffffff;
+--black:#000000;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:var(--light);
+color:#111;
+transition:0.4s;
+overflow-x:hidden;
+}
+
+body.dark-mode{
+background:var(--dark);
+color:white;
+}
+
+/* HEADER */
+
+header{
+position:sticky;
+top:0;
+z-index:1000;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo img{
+width:55px;
+height:55px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.logo h2{
+font-family:'Playfair Display',serif;
+color:white;
+font-size:1.7rem;
+}
+
+nav{
+display:flex;
+gap:20px;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+font-weight:600;
+position:relative;
+transition:0.3s;
+padding:8px 12px;
+border-radius:10px;
+}
+
+nav a:hover{
+color:var(--yellow);
+}
+
+nav a:visited{
+color:var(--yellow);
+background:rgba(255,215,0,0.15);
+}
+nav a.active-menu{
+background:var(--yellow);
+color:var(--blue);
+}
+nav a::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-5px;
+width:0%;
+height:2px;
+background:var(--yellow);
+transition:0.3s;
+}
+
+nav a:hover::after{
+width:100%;
+}
+
+.theme-btn{
+background:var(--yellow);
+border:none;
+padding:10px 15px;
+border-radius:30px;
+font-weight:bold;
+cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+position:relative;
+height:600px;
+overflow:hidden;
+}
+
+.hero img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.hero-overlay{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.5);
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:20px;
+}
+
+.hero-overlay h1{
+font-size:5rem;
+font-family:'Playfair Display',serif;
+color:white;
+text-shadow:2px 2px 15px rgba(0,0,0,0.7);
+}
+
+.hero-overlay p{
+font-size:1.4rem;
+color:white;
+margin-top:10px;
+}
+/* HERO LOGOS */
+.hero-logos{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:25px;
+margin-top:25px;
+flex-wrap:wrap;
+}
+
+.hero-logos img{
+width:90px;
+height:90px;
+object-fit:cover;
+border-radius:50%;
+background:white;
+padding:5px;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+transition:0.3s;
+}
+
+.hero-logos img:hover{
+transform:scale(1.08);
+}
+/* SECTION */
+
+.page{
+display:none;
+padding:60px 40px;
+animation:fadeIn 0.7s ease;
+min-height:100vh;
+}
+
+.page.active{
+display:block;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.section-title{
+font-size:3rem;
+margin-bottom:30px;
+text-align:center;
+font-family:'Playfair Display',serif;
+color:var(--blue);
+}
+
+.dark-mode .section-title{
+color:var(--yellow);
+}
+
+.intro{
+max-width:1200px;
+margin:auto;
+line-height:1.9;
+text-align:justify;
+font-size:1.05rem;
+}
+
+/* CAROUSEL */
+
+.carousel{
+display:flex;
+gap:20px;
+overflow-x:auto;
+padding:20px 10px;
+scroll-behavior:smooth;
+margin-top:30px;
+justify-content:center;
+}
+
+.carousel::-webkit-scrollbar{
+height:10px;
+}
+
+.carousel::-webkit-scrollbar-thumb{
+background:var(--yellow);
+border-radius:10px;
+}
+
+.carousel img{
+width:400px;
+height:250px;
+border-radius:20px;
+object-fit:cover;
+flex-shrink:0;
+transition:0.4s;
+cursor:pointer;
+}
+
+.carousel img:hover{
+transform:scale(1.05);
+}
+
+/* TEACHERS */
+
+.teacher-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+.teacher-card{
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+transition:0.4s;
+cursor:pointer;
+text-decoration:none;
+color:inherit;
+display:block;
+position:relative;
+}
+
+.dark-mode .teacher-card{
+background:#161b22;
+}
+
+.teacher-card:hover{
+transform:translateY(-10px);
+}
+.teacher-card::after{
+content:'Click to Open Portfolio';
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.6);
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+font-weight:bold;
+opacity:0;
+transition:0.3s;
+}
+
+.teacher-card:hover::after{
+opacity:1;
+}
+.teacher-card img{
+width:100%;
+height:500px;
+object-fit:cover;
+object-position:center 20%;
+}
+
+.teacher-card h3{
+padding:15px;
+text-align:center;
+}
+
+/* TASKS */
+
+.task-card{
+min-width:300px;
+position:relative;
+overflow:hidden;
+border-radius:20px;
+display:block;
+transition:0.4s;
+}
+.task-card:hover{
+transform:translateY(-10px);
+}
+.task-card::after{
+content:'Click to Open Performance Tasks';
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.6);
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+font-weight:bold;
+opacity:0;
+transition:0.3s;
+border-radius:20px;
+text-align:center;
+padding:10px;
+}
+.task-card:hover::after{
+opacity:1;
+}
+.task-card img{
+width:100%;
+height:360px;
+border-radius:20px;
+object-fit:cover;
+}
+
+/* GALLERY */
+
+.gallery-group{
+margin-bottom:30px;
+}
+
+.gallery-btn{
+width:100%;
+padding:15px;
+border:none;
+background:var(--yellow);
+font-size:1.1rem;
+font-weight:bold;
+border-radius:15px;
+cursor:pointer;
+margin-bottom:15px;
+}
+
+.gallery-grid{
+display:none;
+grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+gap:15px;
+animation:fadeIn 0.5s ease;
+}
+
+.gallery-grid img{
+width:100%;
+height:340px;
+object-fit:cover;
+border-radius:15px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.gallery-grid img:hover{
+transform:scale(1.03);
+}
+
+/* LIGHTBOX */
+
+.lightbox{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.9);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:2000;
+}
+
+.lightbox img{
+max-width:90%;
+max-height:90%;
+border-radius:20px;
+}
+
+.close-lightbox{
+position:absolute;
+top:30px;
+right:40px;
+font-size:3rem;
+color:white;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+background:#000;
+color:white;
+padding:30px;
+text-align:center;
+line-height:2;
+}
+
+/* MOBILE */
+
+.menu-toggle{
+display:none;
+font-size:2rem;
+color:white;
+cursor:pointer;
+}
+
+@media(max-width:768px){
+
+header{
+padding:15px 20px;
+}
+
+.hero{
+height:450px;
+}
+
+.hero-overlay h1{
+font-size:2.8rem;
+}
+
+nav{
+display:none;
+position:absolute;
+top:80px;
+right:20px;
+flex-direction:column;
+background:black;
+padding:20px;
+border-radius:15px;
+}
+
+nav.show{
+display:flex;
+}
+
+.menu-toggle{
+display:block;
+}
+
+section{
+padding:50px 20px;
+}
+
+.carousel img{
+width:300px;
+height:200px;
+}
+
+}
+/* REMOVE HOVER EFFECT IN ABOUT PAGE */
+#about .teacher-card:hover{
+transform:none;
+}
+
+#about .teacher-card::after{
+display:none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+<div class="logo">
+<img src=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtdJFYzRFg8pXYw0F4TRvPI-mDfxJTz8auww&s">
+<h2>Sta. Elena High School Portfolio</h2>
+</div>
+
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+<nav id="navMenu">
+
+<a href="#" onclick="showPage('home', this)">Home</a>
+
+<a href="#" onclick="showPage('teachers', this)">
+Pre-Service Teacher Portfolio
+</a>
+
+<a href="#" onclick="showPage('tasks', this)">
+Tasks
+</a>
+
+<a href="#" onclick="showPage('gallery', this)">
+Gallery
+</a>
+
+<a href="#" onclick="showPage('about', this)">
+About
+</a>
+
+</nav>
+
+<button class="theme-btn" onclick="toggleMode()" id="modeBtn">🌙 Dark</button>
+
+</header>
+
+<!-- HOME -->
+
+<section id="home" class="page active">
+
+<div class="hero">
+
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4l99xPmz05ifRpLp353sTkR5XFJepgb4-6V6lP7x9m-xNDoJvd-9c-X7w7HNmbW5v-U77GDfhsUriqO0svxNoiycB3sA_oIs-mQkAWxTYZ31sO9lhHLy_dA_dEiOhhlCgufQAsUbkPiBD/s1600/IMG20180130153608.jpg">
+
+<div class="hero-overlay">
+<h1>Sta. Elena High School</h1>
+<p>Internship E-Portfolio of BTLEDICT 4-2</p>
+
+<div class="hero-logos">
+<img src="https://tinyurl.com/y4nf5w7y" alt="PUP Logo">
+<img src="https://tinyurl.com/4fy4379m" alt="Sta. Elena Logo">
+</div>
+
+</div>
+
+</div>
+
+<br><br>
+
+<h2 class="section-title">Welcome!</h2>
+
+<div class="intro">
+
+<p>
+Welcome to our Internship E-Portfolio, a digital compilation of our journey as student teachers under the Practice Teaching/Internship (EDUC 024) program from the Polytechnic University of the Philippines - Sta. Mesa, Manila. This website serves as a reflection of our experiences, growth, dedication, and learning throughout our internship in the field of education. It highlights the meaningful moments, challenges, and accomplishments we encountered as we prepared ourselves to become future educators.
+<br><br>
+Inside this portfolio, you will find our daily journals, documentations, pictures, and performance tasks that showcase our teaching experiences and professional development. It also contains important supporting documents such as our Daily Time Records (DTR), certificates, lesson plans, final demonstration teaching materials, presentations, evaluations, memorandum of agreement, endorsement letters, and other requirements related to our internship journey.
+<br><br>
+In addition, this e-portfolio introduces our cooperating school and presents the members of our group of student teachers who worked together throughout this meaningful experience. Through this platform, we aim to demonstrate not only our academic requirements but also our passion, commitment, and readiness to serve in the teaching profession.
+<br><br>
+We hope this portfolio provides a clear glimpse of our growth and experiences as aspiring educators, and serves as a testament to the knowledge, skills, and values we have developed during our internship journey.
+</p>
+
+</div>
+
+<div class="carousel">
+
+<img src="https://tinyurl.com/2x7p4set">
+<img src="https://tinyurl.com/472a3tkv">
+<img src="https://tinyurl.com/sd863xk9">
+<img src="https://tinyurl.com/4227pptr">
+<img src="https://tinyurl.com/ynd4jmr2">
+
+</div>
+
+</section>
+
+<!-- PRE SERVICE -->
+
+<section id="teachers" class="page">
+
+<h2 class="section-title">Pre-Service Teacher Portfolio</h2>
+
+<div class="teacher-grid">
+
+<!-- KARL -->
+
+<a href="https://canva.link/y17evbzezj36pl9"
+target="_blank"
+class="teacher-card">
+
+<img src="https://plain-apac-prod-public.komododecks.com/202605/24/R5g4UpVbsMKEVHpZ2fLh/image.jpg">
+
+<h3>Karl Roy N. Cañeza</h3>
+
+</a>
+
+<!-- ISAAC -->
+
+<a href="https://canva.link/phhjccfrit0w9qa"
+target="_blank"
+class="teacher-card">
+
+<img src="https://plain-apac-prod-public.komododecks.com/202605/24/XfMA2q9MNeAtyhqwHkHG/image.jpg">
+
+<h3>Isaac Ronan C. Collantes</h3>
+
+</a>
+
+<!-- ANNSON -->
+
+<a href="https://canva.link/judpzu1pw4l8fbk"
+target="_blank"
+class="teacher-card">
+
+<img src="https://plain-apac-prod-public.komododecks.com/202605/24/epDAO3zl4N0O4BaZIXLx/image.jpg">
+
+<h3>Annson Joyce M. Eustaquio</h3>
+
+</a>
+
+<!-- GELO -->
+
+<a href="https://canva.link/jfoo7o9cm4u37ir"
+target="_blank"
+class="teacher-card">
+
+<img src="https://plain-apac-prod-public.komododecks.com/202605/24/dVVN8kfIIM41WILPgkr1/image.jpg">
+
+<h3>Gelo G. Lata</h3>
+
+</a>
+
+<!-- IAN -->
+
+<a href="https://canva.link/uc2a2w540bf6wp1"
+target="_blank"
+class="teacher-card">
+
+<img src="https://plain-apac-prod-public.komododecks.com/202605/24/exUV7plAcpvvuOz3wzjJ/image.jpg">
+
+<h3>Ian Joseph P. Tumaque</h3>
+
+</a>
+
+</div>
+
+<br><br>
+
+<div class="intro">
+
+<p>
+This Pre-Service Teacher Portfolio section of our E-Portfolio Website serves as a comprehensive digital collection of documents, outputs, and experiences gathered throughout the practice teaching journey. This page highlights the professional growth, teaching competencies, and real-world experiences of pre-service teachers during their internship and field study.
+<br><br>
+It contains important academic and professional records, including Weekly Journals, Lesson Plans for Final Demonstration and Regular Classes, Presentation Slides, and various Evaluation Forms. The portfolio also showcases supporting documents such as the Memorandum of Agreement, Letter of Endorsement, Parental Consent, Safety Insurance, Daily Time Record (DTR), and Certification of Completion.
+<br><br>
+In addition, this section features Action/Face-to-Face Pictures that capture meaningful teaching experiences and classroom interactions. It also includes evaluations from both the Cooperating Teacher and the Pre-Service Teacher, as well as the Curriculum Vitae of the Practice Teaching Student.
+<br><br>
+Our Portfolio reflects dedication, professionalism, and readiness for the teaching profession while serving as evidence of the student teacher’s achievements, responsibilities, and learning experiences throughout the practice teaching program.
+<br><br>
+Click the picture to reveal the e-portfolio and explore our journey as aspiring educators committed to learning, growth, and excellence in the field of education.
+</p>
+
+</div>
+
+</section>
+
+<!-- TASKS -->
+
+<section id="tasks" class="page">
+
+<h2 class="section-title">Performance Tasks</h2>
+
+<div class="carousel">
+
+<a href="https://canva.link/z2qvmigmm5wa3cb" target="_blank" class="task-card">
+<img src="images/KARL PT.jpg">
+</a>
+
+<a href="https://canva.link/k3shnuwl5wda12b" target="_blank" class="task-card">
+<img src="images/ISAAC PT.jpg">
+</a>
+
+<a href="https://canva.link/l0kj5btlgjsdap2" target="_blank" class="task-card">
+<img src="images/ANNSON PT.jpg">
+</a>
+
+<a href="https://canva.link/1mkql7zpx9hns2b" target="_blank" class="task-card">
+<img src="images/GELO PT.jpg">
+</a>
+
+<a href="https://canva.link/kv438mgddf8p8za" target="_blank" class="task-card">
+<img src="images/IAN PT.jpg">
+</a>
+
+</div>
+
+<br><br>
+
+<div class="intro">
+
+<p>
+This section contains the series of performance tasks accomplished throughout our Practice Teaching/Internship (EDUC 024) course. These outputs represent the different learning contents, activities, and topics discussed in our syllabus, which helped enhance our knowledge, teaching skills, and professional growth as pre-service teachers.
+<br><br>
+Each performance task reflects our understanding, participation, creativity, and application of the concepts learned during the course. These activities also served as opportunities for us to develop competence, responsibility, collaboration, and preparedness in the field of education.
+<br><br>
+Through this collection of works, we are able to showcase our progress and learning journey as aspiring educators dedicated to continuous improvement and excellence in teaching.
+</p>
+
+</div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section id="gallery" class="page">
+
+<h2 class="section-title">Gallery</h2>
+
+<!-- DECEMBER -->
+
+<div class="gallery-group">
+<button class="gallery-btn" onclick="toggleGallery(this)">December</button>
+
+<div class="gallery-grid">
+
+<img src="images/DEC 1.jpg">
+<img src="images/DEC 2.jpg">
+<img src="images/DEC 3.png">
+<img src="images/DEC 4.jpg">
+<img src="images/DEC 5.jpg">
+<img src="images/DEC 6.jpg">
+<img src="images/DEC 7.jpg">
+<img src="images/DEC 8.jpg">
+</div>
+</div>
+
+<!-- JANUARY -->
+
+<div class="gallery-group">
+<button class="gallery-btn" onclick="toggleGallery(this)">January</button>
+
+<div class="gallery-grid">
+
+<img src="images/JAN 1.jpg">
+<img src="images/JAN 2.jpg">
+<img src="images/JAN 3.jpg">
+<img src="images/JAN 4.jpg">
+<img src="images/JAN 5.jpg">
+<img src="images/JAN 6.jpg">
+<img src="images/JAN 7.jpg">
+<img src="images/JAN 8.jpg">
+<img src="images/JAN 9.jpg">
+<img src="images/JAN 10.jpg">
+<img src="images/JAN 11.jpg">
+<img src="images/JAN 12.jpg">
+</div>
+</div>
+
+<!-- FEBRUARY -->
+
+<!-- FEBRUARY -->
+<div class="gallery-group">
+<button class="gallery-btn" onclick="toggleGallery(this)">February</button>
+<div class="gallery-grid">
+<img src="images/FEB 1.jpg">
+<img src="images/FEB 2.jpg">
+<img src="images/FEB 3.jpg">
+<img src="images/FEB 4.jpg">
+<img src="images/FEB 5.jpg">
+<img src="images/FEB 6.jpg">
+<img src="images/FEB 7.jpg">
+<img src="images/FEB 8.jpg">
+</div>
+</div>
+
+<!-- MARCH -->
+
+<!-- MARCH -->
+<div class="gallery-group">
+<button class="gallery-btn" onclick="toggleGallery(this)">March</button>
+<div class="gallery-grid">
+<img src="images/MAR 1.jpg">
+<img src="images/MAR 2.jpg">
+<img src="images/MAR 3.jpg">
+<img src="images/MAR 4.jpg">
+<img src="images/MAR 5.jpg">
+<img src="images/MAR 6.jpg">
+<img src="images/MAR 7.jpg">
+<img src="images/MAR 8.jpg">
+</div>
+</div>
+
+<!-- FINAL DEMO -->
+
+<div class="gallery-group">
+<button class="gallery-btn" onclick="toggleGallery(this)">Final Demo</button>
+
+<div class="gallery-grid">
+
+<img src="images/DEM 1.jpg">
+<img src="images/DEM 2.jpg">
+<img src="images/DEM 3.jpg">
+<img src="images/DEM 4.jpg">
+<img src="images/DEM 5.jpg">
+<img src="images/DEM 6.jpg">
+<img src="images/DEM 7.jpg">
+<img src="images/DEM 8.jpg">
+<img src="images/DEM 9.jpg">
+<img src="images/DEM 10.jpg">
+<img src="images/DEM 11.jpg">
+<img src="images/DEM 12.jpg">
+<img src="images/DEM 13.jpg">
+<img src="images/DEM 14.jpg">
+<img src="images/DEM 15.jpg">
+<img src="images/DEM 16.jpg">
+<img src="images/DEM 17.jpg">
+<img src="images/DEM 18.jpg">
+<img src="images/DEM 19.jpg">
+<img src="images/DEM 20.jpg">
+</div>
+</div>
+
+</section>
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox" id="lightbox">
+
+<span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+
+<img id="lightbox-img">
+
+</div>
+<!-- ABOUT -->
+
+<section id="about" class="page">
+
+<h2 class="section-title">About</h2>
+
+<div class="teacher-grid">
+
+<div class="teacher-card">
+
+<img src="images/SHS 1.jpg">
+
+<h3>Sta. Elena High School</h3>
+
+<p style="padding:15px; text-align:center;">
+Sta. Elena High School served as our cooperating school and became an important part of our meaningful internship journey, providing us with valuable teaching experiences, professional growth, and opportunities to apply our knowledge and skills in a real classroom environment.
+</p>
+
+</div>
+
+<div class="teacher-card">
+
+<img src="images/CT 1.jpg">
+
+<h3>Cooperating Teachers</h3>
+
+<p style="padding:15px; text-align:center;">
+Dedicated mentors and professional educators who provided guidance, support, and valuable insights throughout our practice teaching journey, helping us develop our skills, confidence, and passion for the teaching profession.
+<table style="border: 0px; padding-left: 25px; border-spacing: 30px">
+<tr>
+<td><ul>
+<li>Mrs. Neriza S. Sulieta</li>
+<li>Mr. Rutmel Niño V. Esguerra</li>
+</ul>
+</td>
+<td><ul>
+<li>Ms. Divina E. Gargaritano</li>
+<li>Mr. Renee Roseller V. Grafilon</li>
+</ul>
+</td>
+</tr>
+</table>
+</p>
+
+</div>
+
+<div class="teacher-card">
+
+<img src="images/CHERS 1.jpg">
+
+<h3>Pre-Service Teachers</h3>
+
+<p style="padding:15px; text-align:center;">
+Dedicated pre-service teachers under the Bachelor of Technology and Livelihood Education major in Information and Communication Technology (ICT) 
+at the Polytechnic University of the Philippines College of Education, committed to continuous learning, professional growth, and excellence in 
+teaching through innovation, technology, and meaningful educational experiences.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+Submitted by: Cañeza | Collantes | Eustaquio | Lata | Tumaque
+</p>
+
+<p>
+Submitted to: Jimmy M. Fernando
+</p>
+
+</footer>
+
+<script>
+function showPage(pageId, element){
+
+const pages=document.querySelectorAll('.page');
+
+pages.forEach(page=>{
+page.classList.remove('active');
+});
+
+document.getElementById(pageId).classList.add('active');
+
+/* REMOVE ACTIVE COLOR FROM ALL MENUS */
+const navLinks=document.querySelectorAll('nav a');
+
+navLinks.forEach(link=>{
+link.classList.remove('active-menu');
+});
+
+/* ADD ACTIVE COLOR TO CLICKED MENU */
+element.classList.add('active-menu');
+
+window.scrollTo({
+top:0,
+behavior:'smooth'
+});
+
+const nav=document.getElementById('navMenu');
+
+if(window.innerWidth <= 768){
+nav.classList.remove('show');
+}
+}
+function toggleMode(){
+
+document.body.classList.toggle('dark-mode');
+
+const btn=document.getElementById('modeBtn');
+
+if(document.body.classList.contains('dark-mode')){
+btn.innerHTML='☀ Light';
+}else{
+btn.innerHTML='🌙 Dark';
+}
+
+}
+
+function toggleGallery(button){
+
+const grid=button.nextElementSibling;
+
+if(grid.style.display==="grid"){
+grid.style.display="none";
+}else{
+grid.style.display="grid";
+}
+
+}
+
+function openLightbox(src){
+
+document.getElementById('lightbox').style.display='flex';
+document.getElementById('lightbox-img').src=src;
+
+}
+
+function closeLightbox(){
+
+document.getElementById('lightbox').style.display='none';
+
+}
+
+function toggleMenu(){
+
+document.getElementById('navMenu').classList.toggle('show');
+
+}
+
+</script>
+
+</body>
+</html>
